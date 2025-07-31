@@ -3,6 +3,7 @@ const form = document.querySelector('form');
 form.addEventListener('submit', function (e) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
+  console.log('data: ', data);
 
   const infoShop = {
     id: '1635182144',
@@ -21,24 +22,17 @@ form.addEventListener('submit', function (e) {
   const _dataPos = {
     bill_full_name: data.name,
     bill_phone_number: data.phone,
-    shipping_address: {
-      address: data.address,
-      full_name: data.name,
-      phone_number: data.phone,
-    },
+    shipping_address: { address: data.address, full_name: data.name, phone_number: data.phone },
     note: data.order,
     warehouse_id: infoShop.warehouseId,
     items: [{ quantity, variation_id: infoShop.variationId }],
   };
 
-  fetch(
-    `https://pos.pages.fm/api/v1/shops/${infoShop.id}/orders?api_key=${infoShop.apiKey}`,
-    {
-      method: 'POST',
-      body: JSON.stringify(_dataPos),
-      headers: { 'Content-Type': 'application/json' },
-    },
-  )
+  fetch(`https://pos.pages.fm/api/v1/shops/${infoShop.id}/orders?api_key=${infoShop.apiKey}`, {
+    method: 'POST',
+    body: JSON.stringify(_dataPos),
+    headers: { 'Content-Type': 'application/json' },
+  })
     .then((res) => res.json())
     .then((result) => console.log('✅ Server trả về:', result))
     .catch((err) => console.log('❌ Lỗi:', err));
