@@ -41,7 +41,6 @@ function importToPos() {
 }
 
 function main() {
-  console.log(1111);
   importToPos();
 }
 
