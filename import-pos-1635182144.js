@@ -41,6 +41,7 @@ function importToPos() {
 }
 
 function main() {
+  console.log('Chạy hàm importToPos');
   importToPos();
 }
 
