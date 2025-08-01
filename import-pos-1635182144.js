@@ -1,4 +1,4 @@
-const importToPos = () => {
+const importToPos = function () {
   const form = document.querySelector('form');
 
   form.addEventListener('submit', function (e) {
@@ -40,7 +40,7 @@ const importToPos = () => {
   });
 };
 
-const main = () => {
+const main = function () {
   importToPos();
 };
 
