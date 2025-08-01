@@ -40,8 +40,8 @@ function importToPos() {
   });
 }
 
-// function main() {
-//   importToPos();
-// }
+function main() {
+  importToPos();
+}
 
-// main();
+main();
