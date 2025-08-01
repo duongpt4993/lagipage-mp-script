@@ -1,4 +1,4 @@
-const importToPos = function () {
+function importToPos() {
   const form = document.querySelector('form');
 
   form.addEventListener('submit', function (e) {
@@ -38,10 +38,10 @@ const importToPos = function () {
       .then((result) => console.log('✅ Server trả về:', result))
       .catch((err) => console.log('❌ Lỗi:', err));
   });
-};
+}
 
-const main = function () {
+function main() {
   importToPos();
-};
+}
 
 main();
